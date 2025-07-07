@@ -1,0 +1,172 @@
+[
+	{
+		"id": "9187142",
+		"title": "Impulsul dimineții",
+		"description": "10% reducere la orice cafea pentru clienții noi.",
+		"validUntil": "2025-05-10T23:59:59",
+		"business": {
+			"id": "9187132",
+			"name": "Cafeneaua Urbană",
+			"image": "https://texascoffeeschool.com/wp-content/uploads/2022/03/JAN00491-scaled.jpg",
+			"location": {
+				"id": "9187132",
+				"name": "Iași - Piața Unirii",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187143",
+		"title": "Impuls dulce",
+		"description": "Primești un ecler gratuit la orice comandă peste 30 RON.",
+		"validUntil": "2025-05-05T23:59:59",
+		"business": {
+			"id": "9187133",
+			"name": "Patiseria Dulce",
+			"image": "https://sharpsheets.io/wp-content/uploads/2022/11/bakery-solutions03.jpeg.webp",
+			"location": {
+				"id": "9187133",
+				"name": "Iași - Miroslava",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187144",
+		"title": "Impuls burger",
+		"description": "15% reducere la orice meniu pentru utilizatorii Mideally.",
+		"validUntil": "2025-05-15T23:59:59",
+		"business": {
+			"id": "9187134",
+			"name": "Burger House",
+			"image": "https://cdn.vox-cdn.com/thumbor/qb6scDiFH4wTKcbVehj1f1e-X7E=/0x0:1731x1155/1200x900/filters:focal(933x452:1209x728)/cdn.vox-cdn.com/uploads/chorus_image/image/64999899/Eater__Tapisserie_09024.14.jpg",
+			"location": {
+				"id": "9187134",
+				"name": "Iași - Piața Alexandru",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187145",
+		"title": "Impuls relaxare",
+		"description": "Reducere de 20 RON la orice masaj pentru clienții care rezervă online.",
+		"validUntil": "2025-05-08T23:59:59",
+		"business": {
+			"id": "9187135",
+			"name": "Salon Zen",
+			"image": "https://sumatocoffee.com/cdn/shop/articles/the-importance-of-coffee-shops-in-communities-782577.jpg?v=1713277728&width=1600",
+			"location": {
+				"id": "9187135",
+				"name": "Iași - Copou",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187146",
+		"title": "Impuls floral",
+		"description": "Transport gratuit la orice comandă peste 50 RON.",
+		"validUntil": "2025-05-12T23:59:59",
+		"business": {
+			"id": "9187136",
+			"name": "Florăria Verde",
+			"image": "https://www.barniescoffee.com/cdn/shop/articles/bar-1869656_1920.jpg?v=1660683986",
+			"location": {
+				"id": "9187136",
+				"name": "Iași",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187147",
+		"title": "Impuls fitness",
+		"description": "Prima ședință gratuită pentru abonați noi.",
+		"validUntil": "2025-05-20T23:59:59",
+		"business": {
+			"id": "9187137",
+			"name": "Fit Gym",
+			"image": "https://texascoffeeschool.com/wp-content/uploads/2022/03/JAN00491-scaled.jpg",
+			"location": {
+				"id": "9187137",
+				"name": "Iași - Tudor Vladimirescu",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187148",
+		"title": "Impuls pizza",
+		"description": "La două pizza comandate, a treia e gratuită.",
+		"validUntil": "2025-05-11T23:59:59",
+		"business": {
+			"id": "9187138",
+			"name": "Pizza Express",
+			"image": "https://sharpsheets.io/wp-content/uploads/2022/11/bakery-solutions03.jpeg.webp",
+			"location": {
+				"id": "9187138",
+				"name": "Iași - Păcurari",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187149",
+		"title": "Impuls de lectură",
+		"description": "5% reducere suplimentară pentru studenți.",
+		"validUntil": "2025-05-18T23:59:59",
+		"business": {
+			"id": "9187139",
+			"name": "Librăria Smart",
+			"image": "https://cdn.vox-cdn.com/thumbor/qb6scDiFH4wTKcbVehj1f1e-X7E=/0x0:1731x1155/1200x900/filters:focal(933x452:1209x728)/cdn.vox-cdn.com/uploads/chorus_image/image/64999899/Eater__Tapisserie_09024.14.jpg",
+			"location": {
+				"id": "9187139",
+				"name": "Iași - Centru",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187150",
+		"title": "Impuls artizanal",
+		"description": "Pachet de degustare la 50% reducere pentru clienți noi.",
+		"validUntil": "2025-05-13T23:59:59",
+		"business": {
+			"id": "9187140",
+			"name": "Brutăria Artizanală",
+			"image": "https://sumatocoffee.com/cdn/shop/articles/the-importance-of-coffee-shops-in-communities-782577.jpg?v=1713277728&width=1600",
+			"location": {
+				"id": "9187140",
+				"name": "Iași - Nicolina",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	},
+	{
+		"id": "9187151",
+		"title": "Impuls grooming",
+		"description": "Reducere 10 RON la orice serviciu pentru rezervări online.",
+		"validUntil": "2025-05-14T23:59:59",
+		"business": {
+			"id": "9187141",
+			"name": "Barber Shop",
+			"image": "https://www.barniescoffee.com/cdn/shop/articles/bar-1869656_1920.jpg?v=1660683986",
+			"location": {
+				"id": "9187141",
+				"name": "Iași - Tătărași",
+				"latitude": 47.1569,
+				"longitude": 27.5906
+			}
+		}
+	}
+]

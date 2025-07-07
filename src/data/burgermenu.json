@@ -1,0 +1,112 @@
+{
+	"mainLinks": [
+		{
+			"title": "Contul meu",
+			"url": "/cont"
+		},
+		{
+			"title": "Oferte",
+			"url": "/oferte",
+			"highlight": true
+		},
+		{
+			"title": "Contact",
+			"url": "/contact"
+		}
+	],
+	"navLinks": [
+		{
+			"title": "Orașul",
+			"type": "submenu",
+			"items": [
+				{
+					"title": "București",
+					"url": "/bucuresti"
+				},
+				{
+					"title": "Cluj",
+					"url": "/cluj"
+				},
+				{
+					"title": "Iași",
+					"url": "/iasi"
+				},
+				{
+					"title": "Timișoara",
+					"url": "/timisoara"
+				},
+				{
+					"title": "Brașov",
+					"url": "/brasov"
+				},
+				{
+					"title": "Sibiu",
+					"url": "/sibiu"
+				},
+				{
+					"title": "Vezi Toate",
+					"url": "/toate-orasele"
+				}
+			]
+		},
+		{
+			"title": "Descoperă",
+			"type": "submenu",
+			"items": [
+				{
+					"title": "Cafenele",
+					"url": "/cafenele"
+				},
+				{
+					"title": "Patiserii",
+					"url": "/patiserii"
+				},
+				{
+					"title": "Restaurante",
+					"url": "/restaurante"
+				},
+				{
+					"title": "Servicii",
+					"url": "/servicii"
+				},
+				{
+					"title": "Vezi Toate",
+					"url": "/toate"
+				}
+			]
+		}
+	],
+	"infoSubmenu": {
+		"title": "Info",
+		"items": [
+			{
+				"title": "Despre Mideally",
+				"url": "/despre-noi"
+			},
+			{
+				"title": "FAQ",
+				"url": "/faq"
+			},
+			{
+				"title": "Noutăți",
+				"url": "/noutati"
+			},
+			{
+				"title": "Cariere",
+				"url": "/cariere"
+			},
+			{
+				"title": "Termeni și Condiții",
+				"url": "/termeni-si-conditii"
+			},
+			{
+				"title": "Politica de confidențialitate",
+				"url": "/politica-de-confidentialitate"
+			}
+		]
+	},
+	"ctaButton": {
+		"title": "Înregistrează business",
+		"url": "/register-business"
+	}
+}

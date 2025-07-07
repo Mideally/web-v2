@@ -1,0 +1,32 @@
+.blob {
+	background: radial-gradient(circle at 30% 30%, #dbff79, #f6339a 70%);
+	border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+	animation: blobPulse 6s ease-in-out infinite alternate;
+	filter: blur(1px);
+	z-index: 1;
+}
+
+@keyframes blobPulse {
+	0% {
+		border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+	}
+	100% {
+		border-radius: 45% 55% 50% 60% / 60% 50% 60% 45%;
+	}
+}
+
+@keyframes pulseLightning {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.1);
+		opacity: 0.8;
+	}
+}
+
+.animate-pulseLightning {
+	animation: pulseLightning 1.5s ease-in-out infinite;
+}

@@ -1,0 +1,23 @@
+[
+	{
+		"name": "Bogdan Dogaru",
+		"role": "Co-Fondator",
+		"image": "/assets/images/team/bogdan-dogaru.jpeg",
+		"linkedin": "https://www.linkedin.com/in/bdogaru/",
+		"description": "Cu o experiență vastă în IT și antreprenoriat, Bogdan este unul dintre pilonii start-up-ului, coordonând atât dezvoltarea produsului, cât și strategia de business. Experiența sa digitală și viziunea antreprenorială ghidează direcția tehnică a Mideally."
+	},
+	{
+		"name": "Dragoș Schițcu",
+		"role": "Co-Fondator",
+		"image": "/assets/images/team/dragos-schitcu.jpeg",
+		"linkedin": "https://www.linkedin.com/in/dragos-schitcu-b90567301",
+		"description": "Generatorul de inovație în Mideally, Dragoș combină experiența juridică cu competențele solide în business și vânzări pentru a poziționa compania strategic pe piață. Sub conducerea sa, Mideally își dezvoltă continuu relațiile cu partenerii și clienții."
+	},
+	{
+		"name": "Gheorghe Lupu",
+		"role": "Co-Fondator",
+		"image": "/assets/images/team/gheorghe-lupu.jpeg",
+		"linkedin": "https://www.linkedin.com/in/lupu-gheorghe/",
+		"description": "Tech-savvy prin excelență, Gheorghe este arhitectul din spatele platformei Mideally. Cu o experiență tehnică remarcabilă, el coordonează dezvoltarea tehnică a produsului, asigurând că platforma oferă cea mai bună experiență utilizatorilor."
+	}
+]

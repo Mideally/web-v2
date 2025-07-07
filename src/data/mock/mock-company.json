@@ -1,0 +1,470 @@
+{
+	"slug": "cafeneaua-urbana",
+	"name": "Cafeneaua Urbană",
+	"description": "Voluptate quo eum voluptate. Eos eius labore eos aliquid ipsam inventore quisquam. Enim sequi eum modi molestiae sit corrupti magni. Ut nihil nihil iure totam velit.",
+	"locations": [
+		{
+			"id": "9187132",
+			"name": "Iași - Piața Unirii",
+			"shortName": "PU",
+			"address": "Piața Unirii, Iași",
+			"featuredImage": "https://mid.test/storage/7/01JT8ZKA9H9F02CN1NVVRFY60F.jpg",
+			"contact": null,
+			"schedule": [
+				{
+					"day": "monday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "tuesday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "wednesday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "thursday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "friday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "saturday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "sunday",
+					"open": "08:00",
+					"close": "17:00"
+				}
+			],
+			"gallery": ["https://mid.test/storage/7/01JT8ZKA9H9F02CN1NVVRFY60F.jpg"],
+			"coordinates": {
+				"latitude": 47.158473,
+				"longitude": 27.595912
+			},
+			"tags": ["cafenea", "cafenea urbana", "cafenea urbana iași"],
+			"reviews": [
+				{
+					"name": "Andrei Popescu",
+					"rating": 4.5,
+					"comment": "Foarte bună cafenea, cu un personal foarte amabil și atențios."
+				},
+				{
+					"name": "Maria Ionescu",
+					"rating": 5,
+					"comment": "Servicii excelente! Personalul este foarte amabil și profesionist. Recomand cu încredere!"
+				}
+			]
+		},
+		{
+			"id": "9187133",
+			"name": "Iași - Miroslava",
+			"shortName": "MI",
+			"address": "Miroslava, Iași",
+			"featuredImage": "https://mid.test/storage/7/01JT8ZKA9H9F02CN1NVVRFY60F.jpg",
+			"contact": null,
+			"schedule": [
+				{
+					"day": "monday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "tuesday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "wednesday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "thursday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "friday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "saturday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "sunday",
+					"open": "08:00",
+					"close": "17:00"
+				}
+			],
+			"gallery": [],
+			"coordinates": {
+				"latitude": 47.158473,
+				"longitude": 27.595912
+			},
+			"tags": ["cafenea", "cafenea urbana", "cafenea urbana iași"],
+			"reviews": [
+				{
+					"name": "Andrei Popescu",
+					"rating": 4.5,
+					"comment": "O experiență minunată, atmosferă plăcută și produse de calitate. Voi reveni cu siguranță."
+				},
+				{
+					"name": "Maria Ionescu",
+					"rating": 3.5,
+					"comment": "În general bine, dar mai este loc de îmbunătățire la timpul de așteptare."
+				},
+				{
+					"name": "Gabriela Jucu",
+					"rating": 5,
+					"comment": "Cea mai bună alegere din oraș! Calitate premium și servicii impecabile."
+				},
+				{
+					"name": "Ilinca Avram",
+					"rating": 4,
+					"comment": "Foarte mulțumit de serviciile oferite. Personalul este bine pregătit și prietenos."
+				},
+				{
+					"name": "Filip Iacob",
+					"rating": 5,
+					"comment": "Locație superbă, servicii de top și prețuri corecte. Merită vizitat!"
+				},
+				{
+					"name": "Lucian Stanciu",
+					"rating": 4.5,
+					"comment": "Am rămas plăcut impresionat de profesionalismul echipei. Recomand cu căldură!"
+				},
+				{
+					"name": "Alexandra Lazăr",
+					"rating": 3,
+					"comment": "Servicii decent, dar prețurile sunt cam mari pentru ce oferă."
+				},
+				{
+					"name": "Mihai Popescu",
+					"rating": 5,
+					"comment": "O experiență extraordinară! Totul a fost perfect, de la început până la sfârșit."
+				},
+				{
+					"name": "Elena Munteanu",
+					"rating": 4.5,
+					"comment": "Personalul foarte amabil și atent la detalii. Servicii de calitate!"
+				},
+				{
+					"name": "Cristian Gheorghe",
+					"rating": 5,
+					"comment": "Unul dintre cele mai bune locuri din oraș. Mereu plec mulțumit de aici."
+				}
+			]
+		},
+		{
+			"id": "9187134",
+			"name": "Iași - Piața Alexandru",
+			"shortName": "PA1",
+			"address": "Piața Alexandru, Iași",
+			"featuredImage": "https://mid.test/storage/7/01JT8ZKA9H9F02CN1NVVRFY60F.jpg",
+			"contact": null,
+			"schedule": [
+				{
+					"day": "monday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "tuesday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "wednesday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "thursday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "friday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "saturday",
+					"open": "08:00",
+					"close": "17:00"
+				},
+				{
+					"day": "sunday",
+					"open": "08:00",
+					"close": "17:00"
+				}
+			],
+			"gallery": [],
+			"coordinates": {
+				"latitude": 47.158473,
+				"longitude": 27.595912
+			},
+			"tags": ["cafenea", "cafenea urbana", "cafenea urbana iași"],
+			"reviews": [
+				{
+					"name": "Andrei Popescu",
+					"rating": 4,
+					"comment": "Servicii bune, personal prietenos. Recomand pentru calitatea oferită."
+				},
+				{
+					"name": "Maria Ionescu",
+					"rating": 4.5,
+					"comment": "Experiență foarte plăcută! Voi reveni cu siguranță și data viitoare."
+				},
+				{
+					"name": "Bogdan Dinu",
+					"rating": 5,
+					"comment": "Absolut fantastic! Depășește toate așteptările. Merit� vizitat!"
+				},
+				{
+					"name": "Dragoș Vasilescu",
+					"rating": 4,
+					"comment": "O alegere excelentă! Raport calitate-preț foarte bun."
+				}
+			]
+		}
+	],
+	"followers": 245,
+	"socialMedia": {
+		"facebook": "https://www.facebook.com/business",
+		"instagram": "https://www.instagram.com/business"
+	},
+	"gallery": [
+		"https://sharpsheets.io/wp-content/uploads/2022/11/bakery-solutions03.jpeg.webp",
+		"https://cdn.vox-cdn.com/thumbor/qb6scDiFH4wTKcbVehj1f1e-X7E=/0x0:1731x1155/1200x900/filters:focal(933x452:1209x728)/cdn.vox-cdn.com/uploads/chorus_image/image/64999899/Eater__Tapisserie_09024.14.jpg",
+		"https://sumatocoffee.com/cdn/shop/articles/the-importance-of-coffee-shops-in-communities-782577.jpg?v=1713277728&width=1600",
+		"https://www.barniescoffee.com/cdn/shop/articles/bar-1869656_1920.jpg?v=1660683986",
+		"https://www.barniescoffee.com/cdn/shop/articles/bar-1869656_1920.jpg?v=1660683986"
+	],
+	"logo": "https://t4.ftcdn.net/jpg/03/23/91/57/360_F_323915727_pGJQjKMNqpvpOMVqZ5Z2iCDGEVSd5Upk.jpg",
+	"featuredImage": "https://texascoffeeschool.com/wp-content/uploads/2022/03/JAN00491-scaled.jpg",
+	"address": {
+		"zip": "12943-3355",
+		"city": "West Blazemouth",
+		"state": "Illinois",
+		"county": null,
+		"street": "8877 Lorenzo Ville Apt. 302",
+		"address": null,
+		"country": "Armenia"
+	},
+	"contact": {
+		"name": "Aidan Eichmann",
+		"email": "wkoch@example.org",
+		"phone": "(820) 775-6657"
+	},
+	"products": [
+		{
+			"id": "9187132",
+			"title": "Cappuccino",
+			"description": "Cafea italiana cu lapte",
+			"price": 12,
+			"image": "https://lorcoffee.com/cdn/shop/articles/Cappuccino-exc.jpg?v=1684870907"
+		},
+		{
+			"id": "9187133",
+			"title": "Espresso",
+			"description": "Cafea italiana",
+			"price": 8,
+			"image": "https://blogstudio.s3.theshoppad.net/coffeeheroau/ec178d83e5f597b162cda1e60cb64194.jpg"
+		},
+		{
+			"id": "9187134",
+			"title": "Americano",
+			"description": "Cafea italiana",
+			"price": 10,
+			"image": "https://www.caffesociety.co.uk/assets/recipe-images/how-to-make-an-americano.jpg"
+		},
+		{
+			"id": "9187135",
+			"title": "Latte",
+			"description": "Cafea italiana cu lapte",
+			"price": 15,
+			"image": "https://www.foodandwine.com/thmb/CCe2JUHfjCQ44L0YTbCu97ukUzA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Partners-Latte-FT-BLOG0523-09569880de524fe487831d95184495cc.jpg"
+		}
+	],
+	"deals": {
+		"moments": [
+			{
+				"id": "9187132",
+				"title": "Happy Hour Espresso",
+				"description": "Espresso la jumătate de preț între 11:45-12:45.",
+				"startTime": "2025-05-02T11:45:00",
+				"endTime": "2025-07-12T12:45:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187133",
+				"title": "Croissant de dimineață",
+				"description": "Croissant + cafea la 12 RON până la ora 11:30.",
+				"startTime": "2025-05-02T09:00:00",
+				"endTime": "2025-06-12T11:30:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187134",
+				"title": "Lunch Moment",
+				"description": "Burger + băutură la 20% reducere între 13:00-14:00.",
+				"startTime": "2025-05-02T13:00:00",
+				"endTime": "2025-06-02T18:00:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187135",
+				"title": "Moment de relaxare",
+				"description": "Masaj express la 30 RON între 16:00-17:00.",
+				"startTime": "2025-05-02T16:00:00",
+				"endTime": "2025-05-02T17:00:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187136",
+				"title": "Buchetul zilei",
+				"description": "10% reducere la buchetul zilei până la ora 12:00.",
+				"startTime": "2025-05-02T10:00:00",
+				"endTime": "2025-05-02T12:00:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187137",
+				"title": "Acces dimineața",
+				"description": "Acces la sală cu 50% reducere între 11:00-12:00.",
+				"startTime": "2025-05-02T11:00:00",
+				"endTime": "2025-05-02T12:00:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187138",
+				"title": "Pizza la prânz",
+				"description": "Orice pizza la 25 RON între 12:30-13:30.",
+				"startTime": "2025-05-02T12:30:00",
+				"endTime": "2025-05-02T13:30:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187139",
+				"title": "Moment de lectură",
+				"description": "Reducere 15% la orice carte între 14:00-15:00.",
+				"startTime": "2025-05-02T14:00:00",
+				"endTime": "2025-05-02T15:00:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187140",
+				"title": "Pâine caldă",
+				"description": "Pâine artizanală la 8 RON până la ora 12:00.",
+				"startTime": "2025-05-02T10:30:00",
+				"endTime": "2025-05-02T12:00:00",
+				"availableLocations": ["9187133", "9187134"]
+			},
+			{
+				"id": "9187141",
+				"title": "Momentul bărbierului",
+				"description": "Tuns + bărbierit la 30 RON între 15:00-16:00.",
+				"startTime": "2025-05-02T15:00:00",
+				"endTime": "2025-05-02T16:00:00",
+				"availableLocations": ["9187133", "9187134"]
+			}
+		],
+		"drops": [
+			{
+				"id": "9187152",
+				"title": "Drop de cafea",
+				"description": "Primele 30 de cafele la 5 RON azi!",
+				"available": 30,
+				"claimed": 10,
+				"availableLocations": ["9187132", "9187133", "9187134"]
+			},
+			{
+				"id": "9187153",
+				"title": "Drop croissant",
+				"description": "Doar 20 de croissante la preț special de 4 RON.",
+				"available": 20,
+				"claimed": 10,
+				"availableLocations": ["9187132", "9187133", "9187134"]
+			},
+			{
+				"id": "9187154",
+				"title": "Drop burger",
+				"description": "15 meniuri burger la 50% reducere pentru primii clienți.",
+				"available": 15,
+				"claimed": 10,
+				"availableLocations": ["9187132", "9187133", "9187134"]
+			},
+			{
+				"id": "9187155",
+				"title": "Drop relaxare",
+				"description": "10 masaje gratuite pentru primii 10 clienți.",
+				"available": 10,
+				"claimed": 10,
+				"availableLocations": ["9187132", "9187133", "9187134"]
+			},
+			{
+				"id": "9187156",
+				"title": "Drop floral",
+				"description": "25 buchete la jumătate de preț azi.",
+				"available": 25,
+				"claimed": 10,
+				"availableLocations": ["9187132", "9187133", "9187134"]
+			},
+			{
+				"id": "9187157",
+				"title": "Drop fitness",
+				"description": "5 abonamente lunare la preț redus pentru primii înscriși.",
+				"available": 5,
+				"claimed": 1,
+				"availableLocations": ["9187132", "9187133", "9187134"]
+			},
+			{
+				"id": "9187158",
+				"title": "Drop pizza",
+				"description": "Primele 40 de pizza la 15 RON fiecare.",
+				"available": 40,
+				"claimed": 12,
+				"availableLocations": ["9187134"]
+			},
+			{
+				"id": "9187159",
+				"title": "Drop de carte",
+				"description": "Primele 10 romane la 50% reducere.",
+				"available": 10,
+				"claimed": 9,
+				"availableLocations": ["9187134"]
+			},
+			{
+				"id": "9187160",
+				"title": "Drop artizanal",
+				"description": "15 pachete de degustare la 10 RON fiecare.",
+				"available": 15,
+				"claimed": 10,
+				"availableLocations": ["9187134"]
+			},
+			{
+				"id": "9187161",
+				"title": "Drop grooming",
+				"description": "Primele 12 tunsori la 20 RON.",
+				"available": 12,
+				"claimed": 0,
+				"availableLocations": ["9187132", "9187134"]
+			}
+		]
+	}
+}

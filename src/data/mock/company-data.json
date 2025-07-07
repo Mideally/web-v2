@@ -1,0 +1,166 @@
+{
+	"data": [
+		{
+			"slug": "test-company1",
+			"name": "Test Company1",
+			"description": "Voluptate quo eum voluptate. Eos eius labore eos aliquid ipsam inventore quisquam. Enim sequi eum modi molestiae sit corrupti magni. Ut nihil nihil iure totam velit.",
+			"locations": [
+				{
+					"id": 1,
+					"name": "Schuppe-Bins",
+					"address": "7727 Morar Brooks Apt. 112\nKellenfurt, MA 42186",
+					"contact": null,
+					"schedule": [
+						{
+							"day": "monday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "tuesday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "wednesday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "thursday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "friday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "saturday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "sunday",
+							"open": "08:00",
+							"close": "17:00"
+						}
+					],
+					"gallery": ["https://mid.test/storage/7/01JT8ZKA9H9F02CN1NVVRFY60F.jpg"]
+				},
+				{
+					"id": 2,
+					"name": "Brekke-Feest",
+					"address": "643 Cole Lake\nWest Muhammadstad, TX 21185-7993",
+					"contact": null,
+					"schedule": [
+						{
+							"day": "monday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "tuesday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "wednesday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "thursday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "friday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "saturday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "sunday",
+							"open": "08:00",
+							"close": "17:00"
+						}
+					],
+					"gallery": []
+				},
+				{
+					"id": 3,
+					"name": "Kiehn, Streich and Blick",
+					"address": "71996 Zieme Glens\nWardside, TX 23106",
+					"contact": null,
+					"schedule": [
+						{
+							"day": "monday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "tuesday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "wednesday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "thursday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "friday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "saturday",
+							"open": "08:00",
+							"close": "17:00"
+						},
+						{
+							"day": "sunday",
+							"open": "08:00",
+							"close": "17:00"
+						}
+					],
+					"gallery": []
+				}
+			],
+			"followers": null,
+			"gallery": [
+				"https://mid.test/storage/2/01JT8ZB4V37M3M7B7NH427E9KF.jpg",
+				"https://mid.test/storage/3/01JT8ZB4WA2HWB8ZKN6ZKCBX27.jpg",
+				"https://mid.test/storage/4/01JT8ZB4WGP4ZBWNYXQVNB4NZ5.jpg",
+				"https://mid.test/storage/5/01JT8ZB4WNG8K24C72Q8ZPEM8A.jpg",
+				"https://mid.test/storage/6/01JT8ZB4WZ4QE489GKT7PRV3AS.jpg"
+			],
+			"logo": "https://mid.test/storage/1/01JT8XZ9DP2FGFJZNP5YDV28F0.jpg",
+			"address": {
+				"zip": "12943-3355",
+				"city": "West Blazemouth",
+				"state": "Illinois",
+				"county": null,
+				"street": "8877 Lorenzo Ville Apt. 302",
+				"address": null,
+				"country": "Armenia"
+			},
+			"contact": {
+				"name": "Aidan Eichmann",
+				"email": "wkoch@example.org",
+				"phone": "(820) 775-6657"
+			}
+		}
+	]
+}
