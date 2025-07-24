@@ -19,8 +19,14 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 
 	// Filter products for selected location
 	const filteredProducts = useMemo(() => {
-		return company.products || [];
-	}, [company.products]);
+		if (selectedLocation === 'all') {
+			return [];
+		}
+
+		const currentLocation = company.locations.find((loc) => loc.id === selectedLocation);
+
+		return currentLocation?.products || [];
+	}, [company.locations, selectedLocation]);
 
 	// Calculate active vouchers for each location (only non-expired deals)
 	const getActiveVouchersCount = (locationId) => {
@@ -30,6 +36,7 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 		const activeMoments = (company.deals?.moments || []).filter((moment) => {
 			const startTime = new Date(moment.startTime);
 			const endTime = new Date(moment.endTime);
+
 			return moment.availableLocations.includes(locationId) && now >= startTime && now <= endTime;
 		});
 
@@ -43,9 +50,10 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 
 	// Handle get directions click
 	const handleGetDirections = (location) => {
-		const { latitude, longitude } = location.coordinates;
-		const address = encodeURIComponent(location.address);
+		const { latitude, longitude } = location.address.coordinates;
+		const address = encodeURIComponent(location.address.fullAddress);
 		const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&destination_place_id=${address}`;
+
 		window.open(url, '_blank');
 	};
 
@@ -72,10 +80,19 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 			<div className="p-6">
 				{activeTab === 'details' && (
 					<div className="space-y-6">
+						{/* Company description */}
+						{company.companyDetails?.description && (
+							<div className="mb-6">
+								<h3 className="font-semibold text-lg mb-3">Despre {company.companyDetails?.name}</h3>
+								<p className="text-gray-700 leading-relaxed">{company.companyDetails?.description}</p>
+							</div>
+						)}
+
 						{selectedLocation === 'all' ? (
 							<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 								{company.locations.map((location) => {
 									const activeVouchersCount = getActiveVouchersCount(location.id);
+
 									return (
 										<div
 											key={location.id}
@@ -84,7 +101,7 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 										>
 											{/* Voucher notification bubble */}
 											{activeVouchersCount > 0 && (
-												<div className="absolute top-2 right-2 z-10">
+												<div className="absolute top-2 right-2 z-2">
 													<div className="bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center justify-center min-w-[1.5rem] h-6 group/tooltip relative">
 														<span>{activeVouchersCount}</span>
 														{/* Tooltip */}
@@ -101,7 +118,9 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 
 											<div className="aspect-video relative overflow-hidden">
 												<img
-													src={company.featuredImage || 'https://via.placeholder.com/400x225'}
+													src={
+														location.featuredImage || 'https://via.placeholder.com/400x225'
+													}
 													alt={location.name}
 													className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
 												/>
@@ -119,35 +138,39 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 						) : (
 							<div className="space-y-6">
 								<div className="space-y-3">
-									<p>
-										<span className="font-medium">Adresă:</span> {currentLocation.address}
-									</p>
+									<div className="flex flex-col mb-6">
+										<h3 className="font-semibold text-lg">Adresă</h3>
+										<p className="text-gray-700 leading-relaxed">
+											{currentLocation.address.fullAddress}
+										</p>
+									</div>
 									{currentLocation.schedule && (
-										<div>
-											<span className="font-medium">Program:</span>
+										<div className="flex flex-col mb-6">
+											<h3 className="font-semibold text-lg">Program</h3>
 											<ul className="ml-4 list-disc mt-1">
-												{currentLocation.schedule.map((s) => (
-													<li key={s.day}>
-														{s.day}: {s.open} - {s.close}
+												{currentLocation.schedule.map((schedule) => (
+													<li key={schedule.day}>
+														{schedule.day}: {schedule.open} - {schedule.close}
 													</li>
 												))}
 											</ul>
 										</div>
 									)}
 									{currentLocation.contact && (
-										<p>
-											<span className="font-medium">Contact:</span> {currentLocation.contact}
-										</p>
+										<div className="flex flex-col mb-6">
+											<h3 className="font-semibold text-lg">Contact</h3>
+											<p className="text-gray-700 leading-relaxed">{currentLocation.contact}</p>
+										</div>
 									)}
 								</div>
 
-								{currentLocation.coordinates && (
+								{currentLocation.address.coordinates && (
 									<div>
-										<span className="font-medium">Hartă:</span>
-										<div className="mt-2 h-64 rounded-lg overflow-hidden">
+										<h3 className="font-semibold text-lg">Locație</h3>
+										<div className="mt-2 h-100 rounded-lg overflow-hidden">
 											<Map
-												latitude={currentLocation.coordinates.latitude}
-												longitude={currentLocation.coordinates.longitude}
+												latitude={currentLocation.address.coordinates.latitude}
+												longitude={currentLocation.address.coordinates.longitude}
 												title={currentLocation.name}
 											/>
 										</div>
@@ -169,7 +192,13 @@ export default function LocationInfo({ company, selectedLocation, onLocationChan
 
 				{activeTab === 'products' && (
 					<div>
-						{filteredProducts.length === 0 ? (
+						{selectedLocation === 'all' ? (
+							<div className="text-center py-8">
+								<p className="text-gray-500 text-lg">
+									Alege o locație pentru a vedea produsele specifice
+								</p>
+							</div>
+						) : filteredProducts.length === 0 ? (
 							<p className="text-gray-500">Nu există produse pentru această locație.</p>
 						) : (
 							<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

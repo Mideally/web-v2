@@ -1,36 +1,76 @@
 'use client';
 
-import { useState } from 'react';
 import CompanyCard from './CompanyCard';
+import CompanyCardSkeleton from './CompanyCardSkeleton';
 import Button from '@/components/global/Button';
-import companies from '@/data/mock/companies.json';
+import Link from 'next/link';
 
-export default function CompanyGrid() {
-	const [visibleCompanies, setVisibleCompanies] = useState(12);
-
+export default function CompaniesGrid({
+	companies = [],
+	pagination,
+	onLoadMore,
+	isLoading = false,
+	showViewAll = false,
+	viewAllUrl = '/toti-partenerii',
+}) {
 	const handleLoadMore = () => {
-		setVisibleCompanies((prev) => prev + 12);
+		if (onLoadMore) {
+			onLoadMore();
+		}
 	};
+
+	// Filter out companies with missing required data
+	const validCompanies = companies.filter((company) => {
+		return (
+			company && company.featuredImage && company.companyDetails && company.companyDetails.name && company.slug
+		);
+	});
+
+	// Show skeletons when loading and no companies
+	if (isLoading && validCompanies.length === 0) {
+		return (
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+				{Array.from({ length: 3 }).map((_, index) => (
+					<CompanyCardSkeleton key={index} />
+				))}
+			</div>
+		);
+	}
 
 	return (
 		<>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-				{companies.slice(0, visibleCompanies).map((company) => (
-					<CompanyCard key={company.id} company={company} />
+				{validCompanies.map((company) => (
+					<CompanyCard key={company.id || company.slug} company={company} />
 				))}
+
+				{/* Show skeletons for loading more */}
+				{isLoading &&
+					validCompanies.length > 0 &&
+					Array.from({ length: 3 }).map((_, index) => <CompanyCardSkeleton key={`skeleton-${index}`} />)}
 			</div>
 
-			{companies.length > visibleCompanies && (
+			{/* Show "Vezi toate" button when showViewAll is true and there are companies */}
+			{showViewAll && validCompanies.length > 0 && (
 				<div className="mb-8 text-center">
-					<Button variant="tertiary" onClick={handleLoadMore}>
-						Încarcă mai multe
+					<Link href={viewAllUrl}>
+						<Button variant="tertiary">Vezi toate</Button>
+					</Link>
+				</div>
+			)}
+
+			{/* Show "Încarcă mai multe" button when there are more pages and not showing view all */}
+			{pagination?.hasNextPage && !showViewAll && (
+				<div className="mb-8 text-center">
+					<Button variant="tertiary" onClick={handleLoadMore} disabled={isLoading}>
+						{isLoading ? 'Se încarcă...' : 'Încarcă mai multe'}
 					</Button>
 				</div>
 			)}
 
-			{companies.length === 0 && (
+			{validCompanies.length === 0 && !isLoading && (
 				<div className="text-center py-12">
-					<p className="text-gray-600">Nu am găsit parteneri în acest oraș.</p>
+					<p className="text-gray-600">Nu am găsit parteneri în această categorie.</p>
 				</div>
 			)}
 		</>

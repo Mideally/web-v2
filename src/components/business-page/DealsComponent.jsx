@@ -1,57 +1,54 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import MomentOfferCard from './MomentOfferCard';
 import DropOfferCard from './DropOfferCard';
+import ImageTextBanner from '../global/ImageTextBanner';
 
-const typeOptions = [
-	{ id: 'moment', label: 'Momente' },
-	{ id: 'drop', label: 'Drop-uri' },
-];
-
-export default function DealsComponent({ deals, locations, selectedLocation }) {
-	const [selectedType, setSelectedType] = useState('moment');
-
+export default function DealsComponent({ moments, drops, locations, selectedLocation }) {
 	const filteredMoments = useMemo(
 		() =>
-			(deals.moments || []).filter(
-				(m) => selectedLocation === 'all' || m.availableLocations.includes(selectedLocation)
-			),
-		[deals, selectedLocation]
+			(moments || []).filter((m) => {
+				if (selectedLocation === 'all') return true;
+
+				// Check if moment has availableLocations array
+				if (m.business?.availableLocations && Array.isArray(m.business.availableLocations)) {
+					return m.business.availableLocations.some((location) => location.id === selectedLocation);
+				}
+
+				// If no location info, show for all locations
+				return true;
+			}),
+		[moments, selectedLocation]
 	);
 
 	const filteredDrops = useMemo(
 		() =>
-			(deals.drops || []).filter(
-				(d) => selectedLocation === 'all' || d.availableLocations.includes(selectedLocation)
-			),
-		[deals, selectedLocation]
+			(drops || []).filter((d) => {
+				if (selectedLocation === 'all') return true;
+
+				// Check if drop has availableLocations array
+				if (d.business?.availableLocations && Array.isArray(d.business.availableLocations)) {
+					return d.business.availableLocations.some((location) => location.id === selectedLocation);
+				}
+
+				// If no location info, show for all locations
+				return true;
+			}),
+		[drops, selectedLocation]
 	);
 
 	return (
 		<div className="mb-12">
-			<div className="flex flex-wrap gap-4 mb-6">
-				{/* Type filter */}
-				<div className="flex gap-2">
-					{typeOptions.map((type) => (
-						<button
-							key={type.id}
-							className={`px-6 py-2 rounded-full border text-sm font-medium transition cursor-pointer ${
-								selectedType === type.id
-									? 'bg-pink-500 text-white border-pink-500'
-									: 'bg-white text-black border-gray-300 hover:bg-gray-100'
-							}`}
-							onClick={() => setSelectedType(type.id)}
-						>
-							{type.label}
-						</button>
-					))}
-				</div>
-			</div>
-
-			{/* Offers */}
-			{selectedType === 'moment' ? (
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+			{/* Momente Section */}
+			<div className="mb-12">
+				<ImageTextBanner
+					imageSrc="/assets/images/abstract-background-2.jpg"
+					altText="Momente"
+					description="Momente"
+					version="2.0"
+				/>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 					{filteredMoments.length === 0 && (
 						<p className="text-gray-500">Niciun moment activ pentru această locație.</p>
 					)}
@@ -59,8 +56,17 @@ export default function DealsComponent({ deals, locations, selectedLocation }) {
 						<MomentOfferCard key={moment.id} moment={moment} />
 					))}
 				</div>
-			) : (
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+			</div>
+
+			{/* Drop-uri Section */}
+			<div className="mb-12">
+				<ImageTextBanner
+					imageSrc="/assets/images/abstract-background-2.jpg"
+					altText="Dropuri"
+					description="Dropuri"
+					version="2.0"
+				/>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
 					{filteredDrops.length === 0 && (
 						<p className="text-gray-500">Niciun drop activ pentru această locație.</p>
 					)}
@@ -68,7 +74,7 @@ export default function DealsComponent({ deals, locations, selectedLocation }) {
 						<DropOfferCard key={drop.id} drop={drop} />
 					))}
 				</div>
-			)}
+			</div>
 		</div>
 	);
 }

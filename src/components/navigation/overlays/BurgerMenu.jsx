@@ -103,7 +103,7 @@ const BurgerMenu = ({ isOpen, onClose }) => {
 	return (
 		<div
 			ref={overlayRef}
-			className="fixed inset-0 z-50 bg-black/50 flex justify-end"
+			className="fixed inset-0 z-10 bg-black/50 flex justify-end"
 			onClick={handleOverlayClick}
 			style={{
 				opacity: isClosing ? 0 : 1,

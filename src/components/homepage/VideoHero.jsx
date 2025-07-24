@@ -33,6 +33,7 @@ const VideoHero = () => {
 							muted
 							loop
 							playsInline
+							poster="/assets/images/homepage-hero/video-1-frame.png"
 						>
 							<source src="/assets/videos/hero-video-left.mp4" type="video/mp4" />
 						</video>
@@ -48,6 +49,7 @@ const VideoHero = () => {
 							muted
 							loop
 							playsInline
+							poster="/assets/images/homepage-hero/video-2-frame.png"
 						>
 							<source src="/assets/videos/hero-video-center.mp4" type="video/mp4" />
 						</video>
@@ -63,6 +65,7 @@ const VideoHero = () => {
 							muted
 							loop
 							playsInline
+							poster="/assets/images/homepage-hero/video-3-frame.png"
 						>
 							<source src="/assets/videos/hero-video-right.mp4" type="video/mp4" />
 						</video>
@@ -71,7 +74,7 @@ const VideoHero = () => {
 				</div>
 
 				{/* Content Overlay */}
-				<div className="relative z-10 container mx-auto px-4 text-center pt-32 pb-12 md:pb-32">
+				<div className="relative z-2 container mx-auto px-4 text-center pt-32 pb-12 md:pb-32">
 					<div className="yellow-shadow max-w-3xl mx-auto bg-white mb-10">
 						<div className="p-8 md:p-10">
 							<h1 className="text-3xl md:text-7xl font-bold md:font-extrabold mb-6 text-black">

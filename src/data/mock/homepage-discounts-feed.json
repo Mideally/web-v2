@@ -3,9 +3,9 @@
 		{
 			"id": "9187132",
 			"title": "Happy Hour Espresso",
-			"description": "Espresso la jumătate de preț între 11:45-12:45.",
-			"startTime": "2025-05-02T11:45:00",
-			"endTime": "2025-06-12T12:45:00",
+			"description": "Espresso la jumătate de preț între 14:45-15:45.",
+			"startTime": "2025-05-02T14:45:00",
+			"endTime": "2025-08-21T15:45:00",
 			"business": {
 				"id": "9187132",
 				"slug": "cafeneaua-urbana",

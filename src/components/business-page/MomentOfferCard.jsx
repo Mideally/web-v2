@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useOfferDrawer } from '@/components/global/OfferDrawerContext';
 
 function getCountdown(endTime) {
 	const end = new Date(endTime);
@@ -19,6 +20,7 @@ function getCountdown(endTime) {
 
 export default function MomentOfferCard({ moment }) {
 	const [now, setNow] = useState(Date.now());
+	const { openDrawer } = useOfferDrawer();
 
 	useEffect(() => {
 		const interval = setInterval(() => setNow(Date.now()), 1000);
@@ -29,7 +31,13 @@ export default function MomentOfferCard({ moment }) {
 	const countdown = getCountdown(moment.endTime);
 
 	return (
-		<div className={`rounded-lg border shadow bg-white p-4 flex flex-col gap-2 ${expired ? 'opacity-60' : ''}`}>
+		<div
+			className={`rounded-lg border shadow bg-white p-4 flex flex-col gap-2 ${
+				expired ? 'opacity-60' : ''
+			} cursor-pointer`}
+			tabIndex={0}
+			onClick={() => openDrawer(moment, 'moment')}
+		>
 			<div className="flex items-center justify-between">
 				<h3 className="font-semibold text-lg">{moment.title}</h3>
 				<span

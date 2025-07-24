@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import momentsData from '../../data/mock/homepage-discounts-feed.json';
 import Button from '../global/Button';
+import { useOfferDrawer } from '../global/OfferDrawerContext';
 
 const getExpiry = (moment) => {
 	const d = new Date(moment.endTime);
@@ -27,9 +27,10 @@ function getCountdown(endTime) {
 	return `${h > 0 ? h + 'h ' : ''}${m}m ${s}s`;
 }
 
-const MomentOffer = () => {
+const MomentOffer = ({ moments = [] }) => {
 	const [now, setNow] = useState(Date.now());
 	const [hasMounted, setHasMounted] = useState(false);
+	const { openDrawer } = useOfferDrawer();
 
 	useEffect(() => {
 		setHasMounted(true);
@@ -39,7 +40,7 @@ const MomentOffer = () => {
 		return () => clearInterval(interval);
 	}, []);
 
-	const moments = [...momentsData.moments].sort((a, b) => {
+	const sortedMoments = [...moments].sort((a, b) => {
 		const now = Date.now();
 		const aExpired = getExpiry(a) < now;
 		const bExpired = getExpiry(b) < now;
@@ -49,6 +50,25 @@ const MomentOffer = () => {
 		return getExpiry(a) - getExpiry(b);
 	});
 
+	if (sortedMoments.length === 0) {
+		return (
+			<>
+				<h2 className="text-2xl font-bold mb-1">Momente speciale</h2>
+				<p className="text-gray-600 mb-4">
+					Profită de oferte limitate în timp, valabile doar azi la partenerii noștri!
+				</p>
+				<section className="yellow-shadow bg-white p-6">
+					<p className="text-gray-500 text-center">Nu există momente active momentan.</p>
+				</section>
+				<div className="flex justify-center mt-8">
+					<Button variant="white" href="/momente">
+						Vezi toate momentele
+					</Button>
+				</div>
+			</>
+		);
+	}
+
 	return (
 		<>
 			<h2 className="text-2xl font-bold mb-1">Momente speciale</h2>
@@ -56,7 +76,7 @@ const MomentOffer = () => {
 				Profită de oferte limitate în timp, valabile doar azi la partenerii noștri!
 			</p>
 			<section className="yellow-shadow bg-white">
-				{moments.map((moment, idx) => {
+				{sortedMoments.map((moment, idx) => {
 					const expired = getExpiry(moment) < now;
 					const countdown = getCountdown(moment.endTime);
 					const start = new Date(moment.startTime);
@@ -66,18 +86,24 @@ const MomentOffer = () => {
 
 					return (
 						<div key={moment.id}>
-							<a
-								href={`/business/${moment.business?.slug || moment.business?.id}`}
-								className={`block w-full focus:outline-none ${
+							<div
+								className={`block w-full focus:outline-none cursor-pointer ${
 									expired ? 'opacity-60 pointer-events-auto' : 'hover:bg-gray-50 transition'
 								} rounded-lg`}
 								tabIndex={0}
+								onClick={(e) => {
+									e.preventDefault();
+									openDrawer(moment, 'moment');
+								}}
 							>
 								<div className="flex flex-col sm:flex-row items-stretch p-3 gap-3 relative">
 									{/* Image (mobile: full width, desktop: left) */}
 									<div className="relative w-full sm:w-auto">
 										<img
-											src={moment.business?.image}
+											src={
+												moment.business?.availableLocations?.[0]?.featuredImage ||
+												moment.business?.image
+											}
 											alt={moment.business?.name}
 											className="w-full sm:w-24 h-32 sm:h-24 object-cover rounded-lg flex-shrink-0"
 										/>
@@ -89,7 +115,7 @@ const MomentOffer = () => {
 										{/* Countdown tag on mobile (absolute over image) */}
 										{hasMounted && (
 											<span
-												className={`absolute top-2 left-2 sm:hidden z-10 inline-block px-4 py-1.5 rounded-full text-sm font-bold border ${
+												className={`absolute top-2 left-2 sm:hidden z-2 inline-block px-4 py-1.5 rounded-full text-sm font-bold border ${
 													expired
 														? 'bg-gray-200 text-gray-500 border-gray-300'
 														: 'bg-pink-500 text-white border-pink-500'
@@ -128,7 +154,7 @@ const MomentOffer = () => {
 											<p className="text-sm text-gray-600">
 												{moment.business?.name}{' '}
 												<span className="text-gray-400">
-													({moment.business?.location?.name})
+													({moment.business?.availableLocations?.[0]?.name})
 												</span>
 											</p>
 										</div>
@@ -151,22 +177,19 @@ const MomentOffer = () => {
 													Timp rămas: {countdown}
 												</span>
 											)}
-											<span
-												onClick={(e) => {
-													e.preventDefault();
-													window.location.href = `/business/${
-														moment.business?.slug || moment.business?.id
-													}`;
-												}}
-												className="underline text-black text-base cursor-pointer hover:text-pink-900 transition select-none mt-2 sm:mt-3"
-											>
-												Profită de moment
-											</span>
+											{!expired && (
+												<button
+													type="button"
+													className="underline text-black text-base cursor-pointer hover:text-pink-900 transition select-none mt-2 sm:mt-3"
+												>
+													Profită de moment
+												</button>
+											)}
 										</div>
 									</div>
 								</div>
-							</a>
-							{idx !== moments.length - 1 && <div className="border-b border-gray-200" />}
+							</div>
+							{idx !== sortedMoments.length - 1 && <div className="border-b border-gray-200" />}
 						</div>
 					);
 				})}

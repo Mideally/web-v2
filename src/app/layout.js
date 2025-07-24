@@ -4,6 +4,9 @@ import HeadScripts from '@/components/global/HeadScripts';
 import MainNavigation from '@/components/navigation/MainNavigation';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
+import { OfferDrawerProvider } from '@/components/global/OfferDrawerContext';
+import OfferDrawer from '@/components/global/OfferDrawer';
+import { LoadingProvider } from '@/contexts/LoadingContext';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -60,9 +63,14 @@ export default function RootLayout({ children }) {
 						}}
 					/>
 				</div>
-				<MainNavigation />
-				{children}
-				<Footer />
+				<OfferDrawerProvider>
+					<LoadingProvider>
+						<MainNavigation />
+						{children}
+						<Footer />
+						<OfferDrawer />
+					</LoadingProvider>
+				</OfferDrawerProvider>
 			</body>
 		</html>
 	);

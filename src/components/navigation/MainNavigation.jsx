@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation';
 import MegamenuSubnav from './submenus/MegamenuSubnav';
 import SearchOverlay from './overlays/SearchOverlay';
 import BurgerMenu from './overlays/BurgerMenu';
-import megamenuData from '@/data/megamenu.json';
+import { getMegamenuData } from '@/utils/api';
+import { useLoading } from '@/contexts/LoadingContext';
 
 const MainNavigation = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -16,9 +17,47 @@ const MainNavigation = () => {
 	const [isSearchClosing, setIsSearchClosing] = useState(false);
 	const [isBurgerOpen, setIsBurgerOpen] = useState(false);
 	const [isMenuClosing, setIsMenuClosing] = useState(false);
+	const [megamenuData, setMegamenuData] = useState(null);
+	const [isLoadingMegamenu, setIsLoadingMegamenu] = useState(true);
 	const navRef = useRef(null);
 	const pathname = usePathname();
 	const isHomePage = pathname === '/';
+	const { isLoading, progress } = useLoading();
+
+	// Fetch megamenu data on component mount
+	useEffect(() => {
+		const fetchMegamenuData = async () => {
+			try {
+				const result = await getMegamenuData();
+
+				setMegamenuData(result.data);
+			} catch (error) {
+				console.error('Failed to fetch megamenu data:', error);
+				// Fallback to empty data structure
+				setMegamenuData({
+					cities: { items: {} },
+					categories: { items: {} },
+				});
+			} finally {
+				setIsLoadingMegamenu(false);
+			}
+		};
+
+		fetchMegamenuData();
+	}, []);
+
+	// Close all menus on page change
+	useEffect(() => {
+		if (activeSubmenu) {
+			handleMenuClose();
+		}
+		if (isSearchOpen) {
+			handleSearchClose();
+		}
+		if (isBurgerOpen) {
+			setIsBurgerOpen(false);
+		}
+	}, [pathname]);
 
 	// Handle scroll effect
 	useEffect(() => {
@@ -108,10 +147,20 @@ const MainNavigation = () => {
 
 	return (
 		<>
+			{/* Loading Progress Bar */}
+			{isLoading && (
+				<div className="fixed top-0 left-0 w-full h-[7px] bg-pink-200 z-[70] overflow-hidden">
+					<div
+						className="h-full bg-pink-500 transition-all duration-300 ease-out"
+						style={{ width: `${progress}%` }}
+					></div>
+				</div>
+			)}
+
 			{/* Megamenu Overlay */}
 			{shouldRenderMenu && (
 				<div
-					className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+					className={`fixed inset-0 bg-black/50 z-5 transition-opacity duration-300 ${
 						isMenuClosing ? 'opacity-0' : 'opacity-100 animate-fadeIn'
 					}`}
 					onClick={handleMenuClose}
@@ -121,7 +170,7 @@ const MainNavigation = () => {
 			{/* Search Overlay Background */}
 			{shouldRenderSearch && (
 				<div
-					className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+					className={`fixed inset-0 bg-black/50 z-5 transition-opacity duration-300 ${
 						isSearchClosing ? 'opacity-0' : 'opacity-100 animate-fadeIn'
 					}`}
 					onClick={handleSearchClose}
@@ -130,13 +179,13 @@ const MainNavigation = () => {
 
 			<header
 				ref={navRef}
-				className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 mx-5 ${
-					isScrolled ? 'mt-2.5' : 'mt-5'
+				className={`fixed top-0 left-0 right-0 z-10 transition-all duration-300 ${
+					isScrolled ? 'mt-2.5 mx-2.5' : 'mt-5 mx-5'
 				} ${activeSubmenu ? 'rounded-t-xl' : 'rounded-xl'} ${isWhiteTheme ? 'bg-white' : 'bg-transparent'} ${
 					isScrolled ? 'shadow-lg' : ''
 				}`}
 			>
-				<div className="container mx-auto px-4">
+				<div className="mx-auto px-4">
 					<div className="flex items-center justify-between h-16 md:h-20">
 						{/* Logo */}
 						<Link href="/" className="flex-shrink-0">
@@ -280,9 +329,9 @@ const MainNavigation = () => {
 				</div>
 
 				{/* Submenu containers */}
-				{shouldRenderMenu && (
+				{shouldRenderMenu && megamenuData && (
 					<div
-						className={`relative z-50 transition-all duration-300 ${
+						className={`relative z-10 transition-all duration-300 ${
 							isMenuClosing
 								? 'opacity-0 translate-y-[-10px]'
 								: 'opacity-100 translate-y-0 animate-menuFadeIn'

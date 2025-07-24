@@ -44,7 +44,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
 	};
 
 	return (
-		<div className="fixed top-[calc(4rem+30px)] md:top-[calc(5rem+30px)] left-0 right-0 mx-5 z-40">
+		<div className="fixed top-[calc(4rem+30px)] md:top-[calc(5rem+30px)] left-0 right-0 mx-5 z-5">
 			<div
 				className="bg-white shadow-lg rounded-xl border border-gray-100 overflow-hidden"
 				onClick={(e) => e.stopPropagation()}

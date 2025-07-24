@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import dropsData from '../../data/mock/homepage-discounts-feed.json';
 import Button from '../global/Button';
+import { useOfferDrawer } from '../global/OfferDrawerContext';
 
-const DropOffer = () => {
+const DropOffer = ({ drops = [] }) => {
 	const [now, setNow] = useState(Date.now());
+	const { openDrawer } = useOfferDrawer();
 
 	useEffect(() => {
 		const interval = setInterval(() => setNow(Date.now()), 1000);
@@ -13,7 +14,7 @@ const DropOffer = () => {
 		return () => clearInterval(interval);
 	}, []);
 
-	const drops = (dropsData.drops || [])
+	const sortedDrops = (drops || [])
 		.map((drop) => {
 			const claimed = typeof drop.claimed === 'number' ? drop.claimed : 0;
 			const available = typeof drop.available === 'number' ? drop.available : 0;
@@ -33,25 +34,23 @@ const DropOffer = () => {
 			<h2 className="text-2xl font-bold mb-1">Drop-uri exclusive</h2>
 			<p className="text-gray-600 mb-6">Prinde ofertele cu stoc limitat, valabile doar pentru cei mai rapizi!</p>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-				{drops.map((drop) => {
+				{sortedDrops.map((drop) => {
 					const expired = drop.remaining === 0;
 					const progress = drop.available > 0 ? (drop.remaining / drop.available) * 100 : 0;
 
 					return (
 						<div
-							type="button"
 							key={drop.id}
 							disabled={expired}
-							onClick={() => {
-								if (!expired) window.location.href = `/drop/${drop.id}`;
-							}}
 							className={`flex flex-col block text-left rounded-xl shadow-lg transition bg-white border border-black overflow-hidden focus:outline-none border-1 w-full ${
 								expired ? 'opacity-60 pointer-events-none' : ''
 							} duration-200 ease-in-out`}
 							style={{ cursor: expired ? 'not-allowed' : 'pointer' }}
+							onClick={() => !expired && openDrawer(drop, 'drop')}
+							tabIndex={0}
 						>
 							<img
-								src={drop.business?.image}
+								src={drop.business?.availableLocations?.[0]?.featuredImage}
 								alt={drop.business?.name}
 								className="w-full h-40 object-cover"
 							/>
@@ -59,7 +58,7 @@ const DropOffer = () => {
 								<h3 className="text-lg font-semibold truncate">{drop.title}</h3>
 								<p className="text-gray-700 line-clamp-2">{drop.description}</p>
 								<p className="text-sm text-gray-500">
-									Drop by {drop.business?.name} - {drop.business?.location?.name}
+									Drop by {drop.business?.name} - {drop.business?.availableLocations?.[0]?.name}
 								</p>
 								<div className="pt-2 mt-auto">
 									{expired ? (

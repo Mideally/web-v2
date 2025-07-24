@@ -10,7 +10,7 @@ export default function LocationNavigation({ locations, selectedLocation, onLoca
 	return (
 		<>
 			{/* Desktop - Fixed vertical navigation */}
-			<div className="hidden lg:block fixed top-1/2 right-4 transform -translate-y-1/2 z-50">
+			<div className="hidden lg:block fixed top-1/2 right-4 transform -translate-y-1/2 z-3">
 				<div className="bg-white rounded-lg shadow-lg border border-gray-200 p-2">
 					<div className="space-y-2">
 						{/* All locations option */}
@@ -94,7 +94,7 @@ export default function LocationNavigation({ locations, selectedLocation, onLoca
 			</div>
 
 			{/* Mobile - Bottom centered dropdown */}
-			<div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+			<div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-3">
 				<div className="relative">
 					<button
 						onClick={() => setIsOpen(!isOpen)}

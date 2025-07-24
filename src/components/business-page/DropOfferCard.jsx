@@ -1,8 +1,10 @@
 'use client';
 
 import Button from '@/components/global/Button';
+import { useOfferDrawer } from '@/components/global/OfferDrawerContext';
 
 export default function DropOfferCard({ drop }) {
+	const { openDrawer } = useOfferDrawer();
 	const claimed = typeof drop.claimed === 'number' ? drop.claimed : 0;
 	const available = typeof drop.available === 'number' ? drop.available : 0;
 	const remaining = Math.max(available - claimed, 0);
@@ -10,7 +12,13 @@ export default function DropOfferCard({ drop }) {
 	const progress = available > 0 ? (remaining / available) * 100 : 0;
 
 	return (
-		<div className={`rounded-lg border shadow bg-white p-4 flex flex-col gap-2 ${expired ? 'opacity-60' : ''}`}>
+		<div
+			className={`rounded-lg border shadow bg-white p-4 flex flex-col gap-2 ${
+				expired ? 'opacity-60' : ''
+			} cursor-pointer`}
+			tabIndex={0}
+			onClick={() => openDrawer(drop, 'drop')}
+		>
 			<h3 className="font-semibold text-lg">{drop.title}</h3>
 			<p className="text-gray-700">{drop.description}</p>
 			<p className="text-sm text-gray-500">

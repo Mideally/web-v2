@@ -21,27 +21,27 @@
 			"items": [
 				{
 					"title": "București",
-					"url": "/bucuresti"
+					"url": "/parteneri/oras/bucuresti"
 				},
 				{
 					"title": "Cluj",
-					"url": "/cluj"
+					"url": "/parteneri/oras/cluj"
 				},
 				{
 					"title": "Iași",
-					"url": "/iasi"
+					"url": "/parteneri/oras/iasi"
 				},
 				{
 					"title": "Timișoara",
-					"url": "/timisoara"
+					"url": "/parteneri/oras/timisoara"
 				},
 				{
 					"title": "Brașov",
-					"url": "/brasov"
+					"url": "/parteneri/oras/brasov"
 				},
 				{
 					"title": "Sibiu",
-					"url": "/sibiu"
+					"url": "/parteneri/oras/sibiu"
 				},
 				{
 					"title": "Vezi Toate",
@@ -71,7 +71,7 @@
 				},
 				{
 					"title": "Vezi Toate",
-					"url": "/toate"
+					"url": "/toti-partenerii"
 				}
 			]
 		}

@@ -28,12 +28,12 @@ export default function LocationsTabs({ locations, products }) {
 				<div className="bg-white rounded-lg shadow p-6">
 					<h4 className="font-bold text-lg mb-2">Detalii locație</h4>
 					<p className="mb-1">
-						<span className="font-medium">Adresă:</span> {currentLoc.address}
+						<span className="font-medium">Adresă:</span> {currentLoc.address.fullAddress}
 					</p>
-					{currentLoc.coordinates && (
+					{currentLoc.address.coordinates && (
 						<p className="mb-1">
-							<span className="font-medium">Coordonate:</span> {currentLoc.coordinates.latitude},{' '}
-							{currentLoc.coordinates.longitude}
+							<span className="font-medium">Coordonate:</span> {currentLoc.address.coordinates.latitude},{' '}
+							{currentLoc.address.coordinates.longitude}
 						</p>
 					)}
 					{currentLoc.schedule && (
