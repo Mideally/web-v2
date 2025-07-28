@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Section from '@/components/layout/Section';
 import CompaniesGrid from '@/components/companies/CompaniesGrid';
-import SectionHeader from '@/components/layout/SectionHeader';
 import { getCompaniesByType } from '@/utils/api';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function MagazinePage() {
 	const [companies, setCompanies] = useState([]);
@@ -58,10 +58,11 @@ export default function MagazinePage() {
 
 	return (
 		<>
-			<Section className="pt-24 pb-8">
-				<SectionHeader
+			<Section>
+				<PageHeader
 					title="Magazine"
 					subtitle="Descoperă magazine variate cu oferte speciale și produse de calitate. Sprijină afacerile locale și bucură-te de o experiență de cumpărături completă."
+					className="text-center"
 				/>
 				<CompaniesGrid
 					companies={companies}

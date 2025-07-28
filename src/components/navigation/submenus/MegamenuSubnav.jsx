@@ -113,6 +113,7 @@ const MegamenuSubnav = ({ data, type }) => {
 			Object.values(items).forEach((item) => {
 				if (item && item.image) {
 					const img = new window.Image();
+
 					img.onload = imageLoaded;
 					img.src = item.image;
 				}
@@ -131,8 +132,9 @@ const MegamenuSubnav = ({ data, type }) => {
 					<ul className="space-y-5">
 						{Object.keys(items).map((key) => {
 							const item = items[key];
+
 							// Double-check that the item has a valid URL before rendering
-							if (!item || !item.url || typeof item.url !== 'string') {
+							if (!item || !item.url || typeof item.url !== 'string' || !item.title) {
 								return null;
 							}
 
@@ -150,6 +152,7 @@ const MegamenuSubnav = ({ data, type }) => {
 								</li>
 							);
 						})}
+
 						{allItemsLink && allItemsLink.url && (
 							<li>
 								<Link

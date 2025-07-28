@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Section from '@/components/layout/Section';
 import CompaniesGrid from '@/components/companies/CompaniesGrid';
-import SectionHeader from '@/components/layout/SectionHeader';
 import { getCompaniesByType } from '@/utils/api';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function ServiciiPage() {
 	const [companies, setCompanies] = useState([]);
@@ -57,10 +57,11 @@ export default function ServiciiPage() {
 	};
 
 	return (
-		<Section className="pt-24 pb-8">
-			<SectionHeader
+		<Section>
+			<PageHeader
 				title="Servicii"
 				subtitle="Colaborează cu profesioniști locali pentru servicii rapide și de calitate. Indiferent de domeniu, aici găsești partenerii potriviți pentru proiectele tale."
+				className="text-center"
 			/>
 			<CompaniesGrid
 				companies={companies}

@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Section from '@/components/layout/Section';
 import CompaniesGrid from '@/components/companies/CompaniesGrid';
-import SectionHeader from '@/components/layout/SectionHeader';
 import { getCompaniesByType } from '@/utils/api';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function RestaurantePage() {
 	const [companies, setCompanies] = useState([]);
@@ -57,10 +57,11 @@ export default function RestaurantePage() {
 	};
 
 	return (
-		<Section className="pt-24 pb-8">
-			<SectionHeader
+		<Section>
+			<PageHeader
 				title="Restaurante"
 				subtitle="Alege dintr-o varietate de restaurante cu meniuri diverse, atmosferă plăcută și servicii excelente. Fie că preferi fine dining sau preparate tradiționale, găsești aici opțiunea potrivită."
+				className="text-center"
 			/>
 			<CompaniesGrid
 				companies={companies}

@@ -15,7 +15,7 @@ export default function HomepageBusinessPromo() {
 					Platforma noastră este creată pentru afaceri locale care vor să atragă mai mulți clienți, să
 					genereze trafic în timp real și să construiască relații loiale cu comunitatea din jur.
 				</p>
-				<Button variant="primary" href="/download">
+				<Button variant="primary" href="/inregistrare">
 					Înregistrează-ți business-ul
 				</Button>
 			</div>

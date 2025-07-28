@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Section from '@/components/layout/Section';
 import CompaniesGrid from '@/components/companies/CompaniesGrid';
 import { getCompaniesByType } from '@/utils/api';
-import SectionHeader from '@/components/layout/SectionHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function PatiseriiPage() {
 	const [companies, setCompanies] = useState([]);
@@ -57,10 +57,11 @@ export default function PatiseriiPage() {
 	};
 
 	return (
-		<Section className="pt-24 pb-8">
-			<SectionHeader
+		<Section>
+			<PageHeader
 				title="Patiserii"
 				subtitle="Răsfață-te cu produse de patiserie proaspete, preparate cu grijă de maeștri locali. Fie că preferi croissante, plăcinte sau prăjituri, aici găsești cele mai gustoase opțiuni."
+				className="text-center"
 			/>
 			<CompaniesGrid
 				companies={companies}

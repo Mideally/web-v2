@@ -5,8 +5,13 @@
 			"url": "/cont"
 		},
 		{
-			"title": "Oferte",
-			"url": "/oferte",
+			"title": "Drops",
+			"url": "/drops",
+			"highlight": true
+		},
+		{
+			"title": "Momente",
+			"url": "/momente",
 			"highlight": true
 		},
 		{
@@ -107,6 +112,6 @@
 	},
 	"ctaButton": {
 		"title": "Înregistrează business",
-		"url": "/register-business"
+		"url": "/inregistrare"
 	}
 }

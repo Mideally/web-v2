@@ -1,10 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from './Button';
 import { useOfferDrawer } from './OfferDrawerContext';
 
 const OfferDrawer = (props) => {
+	const router = useRouter();
+
 	// Allow both controlled and context usage
 	const context = useOfferDrawer();
 	const isControlled =
@@ -20,12 +23,14 @@ const OfferDrawer = (props) => {
 
 	const [visible, setVisible] = useState(false);
 	const [isClosing, setIsClosing] = useState(false);
+	const [showActivationNotice, setShowActivationNotice] = useState(false);
 	const overlayRef = useRef(null);
 
 	useEffect(() => {
 		if (isOpen && !visible) {
 			setVisible(true);
 			setIsClosing(false);
+			setShowActivationNotice(false);
 		} else if (!isOpen && visible) {
 			setIsClosing(true);
 
@@ -49,6 +54,27 @@ const OfferDrawer = (props) => {
 
 	const handleOverlayClick = (e) => {
 		if (e.target === e.currentTarget) onClose();
+	};
+
+	const handleActivateClick = () => {
+		if (!showActivationNotice) {
+			setShowActivationNotice(true);
+		} else {
+			// Confirm activation - redirect to activation page
+			const activationData = {
+				offerId: offer.id,
+				type: type,
+				offer: offer,
+				timestamp: Date.now(),
+			};
+
+			// Store activation data in sessionStorage
+			sessionStorage.setItem('activeOffer', JSON.stringify(activationData));
+
+			// Close drawer and redirect
+			onClose();
+			router.push('/activare-oferta');
+		}
 	};
 
 	if (!visible && !isOpen) return null;
@@ -114,7 +140,46 @@ const OfferDrawer = (props) => {
 		return null;
 	};
 
+	const renderLocation = () => {
+		if (offer?.business?.availableLocations?.length > 0) {
+			const locations = offer.business.availableLocations;
+			const isMultiple = locations.length > 1;
+
+			return (
+				<div className="mt-4 p-4 bg-gray-50 rounded-lg border border-black">
+					<h3 className="text-sm font-semibold text-gray-900 mb-3">
+						Unde poți activa {type === 'moment' ? 'momentul' : type === 'drop' ? 'drop-ul' : 'impulsul'}:
+					</h3>
+					<div className="space-y-3">
+						{locations.map((location, index) => (
+							<div key={location.id || index} className="flex items-center gap-3">
+								{location.featuredImage && (
+									<img
+										src={location.featuredImage}
+										alt={location.name}
+										className="w-16 h-16 object-cover rounded-lg"
+									/>
+								)}
+								<div className="flex-1">
+									<h4 className="text-sm text-gray-600">{offer.business.name}</h4>
+									<h4 className="font-semibold text-gray-900">{location.name}</h4>
+									{location.address && <p className="text-sm text-gray-600">{location.address}</p>}
+								</div>
+							</div>
+						))}
+					</div>
+					{isMultiple && (
+						<p className="text-xs text-gray-500 mt-2">Disponibil în {locations.length} locații</p>
+					)}
+				</div>
+			);
+		}
+		return null;
+	};
+
 	const getActivateLabel = () => {
+		if (showActivationNotice) return 'Confirm';
+
 		if (type === 'moment') return 'Activează momentul';
 		if (type === 'drop') return 'Activează drop-ul';
 		if (type === 'impuls') return 'Activează impulsul';
@@ -164,7 +229,7 @@ const OfferDrawer = (props) => {
 							/>
 						</svg>
 					</button>
-					<div className="flex-1 flex flex-col gap-4 p-6 overflow-y-auto">
+					<div className="flex-1 flex flex-col gap-4 p-4 overflow-y-auto">
 						{offer?.image && (
 							<img src={offer.image} alt={offer.title} className="w-full h-40 object-cover rounded-lg" />
 						)}
@@ -172,9 +237,26 @@ const OfferDrawer = (props) => {
 						<p className="text-gray-700 text-base">{offer?.description}</p>
 						{renderTime()}
 						{renderCounter()}
+						{renderLocation()}
 					</div>
+
+					{/* Activation notice */}
+					{showActivationNotice && (
+						<div
+							className="px-4 py-3 bg-yellow-50 border-t border-yellow-200"
+							style={{
+								animation: 'slideUp 0.3s ease-out forwards',
+							}}
+						>
+							<p className="text-sm text-yellow-800 font-medium">
+								⚠️ Atenție, ai doar 5 minute să activezi{' '}
+								{type === 'moment' ? 'momentul' : type === 'drop' ? 'drop-ul' : 'impulsul'}
+							</p>
+						</div>
+					)}
+
 					<div className="p-4 border-t border-gray-200 bg-white sticky bottom-0 left-0 w-full">
-						<Button variant="primary" className="w-full text-lg py-3">
+						<Button variant="primary" className="w-full text-lg py-3" onClick={handleActivateClick}>
 							{getActivateLabel()}
 						</Button>
 					</div>
@@ -195,6 +277,16 @@ const OfferDrawer = (props) => {
 					}
 					to {
 						transform: translateX(100%);
+					}
+				}
+				@keyframes slideUp {
+					from {
+						transform: translateY(100%);
+						opacity: 0;
+					}
+					to {
+						transform: translateY(0);
+						opacity: 1;
 					}
 				}
 			`}</style>

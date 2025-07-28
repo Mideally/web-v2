@@ -117,13 +117,13 @@ export default function BusinessPage() {
 					<Gallery imagesData={imagesData} />
 				</div>
 
-				<div className="yellow-shadow bg-white mt-8 md:mt-14 p-6">
+				{/* <div className="yellow-shadow bg-white mt-8 md:mt-14 p-6">
 					<LoyaltyTiers
 						currentUserTier={currentUser.tier}
 						currentUserPoints={currentUser.loyaltyPoints}
 						isLoggedIn={currentUser.isLoggedIn}
 					/>
-				</div>
+				</div> */}
 			</Section>
 		</>
 	);

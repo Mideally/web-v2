@@ -87,10 +87,10 @@ const VideoHero = () => {
 						</div>
 					</div>
 					<div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-						<Button variant="primary" href="/noutati">
-							Vezi ce e nou
+						<Button variant="primary" href="/oferte">
+							Vezi toate ofertele
 						</Button>
-						<Button variant="secondary" href="/business">
+						<Button variant="secondary" href="/inregistrare">
 							Înregistrează-ți business-ul
 						</Button>
 					</div>

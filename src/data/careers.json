@@ -1,0 +1,59 @@
+{
+	"roles": [
+		{
+			"id": "bd-001",
+			"title": "Business Development Specialist",
+			"department": "Sales & Business Development",
+			"location": "Iași, România",
+			"type": "Full-time",
+			"experience": "Mid-level",
+			"remote": "Remote",
+			"salary": "Competitiv + bonusuri + posibilitate de equity",
+			"posted": "2024-07-15",
+			"status": "active",
+			"shortDescription": "Căutăm un coleg pasionat de business development care să ne ajute să creștem rețeaua de parteneri locali și să facem Mideally un succes în România.",
+			"fullDescription": "La Mideally, suntem un startup proaspăt din Iași care redefinește cum afacerile locale se conectează cu clienții prin oferte super cool. Căutăm un Business Development Specialist entuziast care să ne ajute să aducem și mai multe business-uri pe platformă – de la cafenele cozy la servicii locale. Vei avea ocazia să contribui direct la creșterea noastră, să construiești de la zero și să fii parte dintr-o echipă mică, dar ambițioasă. Dacă performezi, vorbim serios de equity ca să te simți cu adevărat co-owner al aventurii.",
+			"responsibilities": [
+				"Găsește și contactează business-uri locale care s-ar potrivi perfect pe Mideally",
+				"Prezintă-le cum platforma noastră îi ajută să crească fără bugete uriașe de marketing",
+				"Negociază parteneriate relaxate și încheie deal-uri win-win",
+				"Menține relații faine cu partenerii noștri și ajută-i să-și maximizeze prezența pe platformă",
+				"Lucrează cu echipa de marketing pentru campanii creative și locale",
+				"Urmărește cum performează partenerii și sugerează îmbunătățiri",
+				"Participă la evenimente de networking locale și fii fața Mideally în comunitate",
+				"Raportează progresul într-un mod simplu, ca să vedem împreună cum creștem"
+			],
+			"requirements": [
+				"Cel puțin 2-3 ani de experiență în business development sau sales (nu trebuie să fii expert, dar să ai energie)",
+				"Cunoașterea pieței românești, mai ales a business-urilor locale din Iași și împrejurimi",
+				"Abilități super de comunicare – să poți vorbi pe limba oricui, de la antreprenori la echipe mici",
+				"Experiență în negociere și închiderea de parteneriate (fără presiune, ci cu vibe pozitiv)",
+				"Capacitatea de a înțelege nevoile reale ale business-urilor și de a veni cu soluții practice",
+				"Organizare bună pentru a ține evidența lead-urilor și a progresului",
+				"Familiaritate cu tool-uri digitale și platforme online (dacă știi un pic de CRM, e bonus)",
+				"Vorbești fluent română și engleză (pentru că vom crește și internațional)"
+			],
+			"niceToHave": [
+				"Experiență în food, retail sau servicii locale (dar dacă nu, învățăm împreună)",
+				"Cunoștințe de marketing digital, ca să ne ajuți să fim și mai vizibili",
+				"Folosire de tool-uri CRM sau sales (nu e obligatoriu, te învățăm noi)",
+				"O rețea de contacte în lumea business-urilor locale din România",
+				"Idei despre legislația românească pentru IMM-uri (dacă nu știi, nu-i problemă – suntem o echipă)"
+			],
+			"benefits": [
+				"Salariu competitiv, plus bonusuri bazate pe rezultate reale (cât de mult creștem împreună)",
+				"Program flexibil, cu opțiune remote sau hibrid – echilibru viață-muncă e prioritate",
+				"Oportunități de învățare și training-uri ca să crești odată cu startup-ul",
+				"Mediu fun, inovator, unde ideile tale chiar contează de la început",
+				"Posibilitate de equity – dacă te implici și ne ajuți să decolăm, devii parte din ownership",
+				"Echipament modern și tool-uri de care ai nevoie să fii productiv",
+				"Zile extra de concediu și evenimente de echipă ca să ne distrăm împreună"
+			],
+			"applicationProcess": [
+				"Trimite-ne un email la careers@mideally.com cu CV-ul tău și de ce vrei să ni te alături",
+				"Vorbim relaxat într-un meetup fizic sau online cu echipa",
+				"Dacă ne potrivim, îți facem o ofertă pe care o să-ți placă"
+			]
+		}
+	]
+}

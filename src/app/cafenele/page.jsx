@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Section from '@/components/layout/Section';
 import CompaniesGrid from '@/components/companies/CompaniesGrid';
-import SectionHeader from '@/components/layout/SectionHeader';
 import { getCompaniesByType } from '@/utils/api';
+import PageHeader from '@/components/layout/PageHeader';
 
 export default function CafenelePage() {
 	const [companies, setCompanies] = useState([]);
@@ -57,10 +57,11 @@ export default function CafenelePage() {
 	};
 
 	return (
-		<Section className="pt-24 pb-8">
-			<SectionHeader
+		<Section>
+			<PageHeader
 				title="Cafenele"
 				subtitle="Alege dintr-o selecție de cafenele locale cu atmosferă unică, cafea proaspăt prăjită și servicii de top. Fie că vrei să lucrezi, să te relaxezi sau să te întâlnești cu prietenii, găsești aici locul perfect."
+				className="text-center"
 			/>
 
 			<CompaniesGrid

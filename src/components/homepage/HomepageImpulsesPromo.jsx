@@ -19,7 +19,7 @@ export default function HomepageImpulsesPromo() {
 						un impuls - o reducere personalizată valabilă doar pentru tine și pentru o perioadă limitată.
 					</p>
 
-					<Button variant="tertiary" href="/download">
+					<Button variant="tertiary" href="/cont">
 						Vino in Mideally
 					</Button>
 				</div>

@@ -121,7 +121,7 @@ export default function AboutPage() {
 						Înscrie-ți businessul în Mideally și conectează-te la clienții tăi.
 					</p>
 					<div className="flex justify-center items-center gap-4 flex-col lg:flex-row">
-						<Button href="/inregistrare-business" size="small">
+						<Button href="/inregistrare" size="small">
 							Înregistrează-te
 						</Button>
 						<Link href="/noutati" className="font-light hover:underline">

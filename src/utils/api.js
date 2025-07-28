@@ -271,8 +271,9 @@ export async function getCompaniesByCounty(county, page = 1, limit = 6) {
  * @returns {Promise<Object>} Megamenu data structure
  */
 export async function getMegamenuData() {
-	const CACHE_KEY = 'megamenu_data';
-	const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+	// TEMPORARILY DISABLED CACHING FOR DEBUGGING
+	// const CACHE_KEY = 'megamenu_data';
+	// const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 	// Check if we're in browser environment
 	if (typeof window === 'undefined') {
@@ -286,20 +287,17 @@ export async function getMegamenuData() {
 		return transformMegamenuData(result.data);
 	}
 
-	// Client-side: check localStorage cache first
-	const cached = localStorage.getItem(CACHE_KEY);
+	// TEMPORARILY DISABLED CACHING - always fetch fresh data
+	// const cached = localStorage.getItem(CACHE_KEY);
+	// if (cached) {
+	// 	const { data, timestamp } = JSON.parse(cached);
+	// 	const now = Date.now();
+	// 	if (now - timestamp < CACHE_DURATION) {
+	// 		return { data };
+	// 	}
+	// }
 
-	if (cached) {
-		const { data, timestamp } = JSON.parse(cached);
-		const now = Date.now();
-
-		// If cache is still valid, return cached data
-		if (now - timestamp < CACHE_DURATION) {
-			return { data };
-		}
-	}
-
-	// Cache expired or doesn't exist, fetch fresh data
+	// Always fetch fresh data
 	try {
 		const res = await fetch(`${API_URL}/companies/megamenu`);
 		if (!res.ok) throw new Error('Failed to fetch megamenu data');
@@ -308,22 +306,22 @@ export async function getMegamenuData() {
 
 		const transformedData = transformMegamenuData(result.data);
 
-		// Cache the transformed data
-		localStorage.setItem(
-			CACHE_KEY,
-			JSON.stringify({
-				data: transformedData,
-				timestamp: Date.now(),
-			})
-		);
+		// TEMPORARILY DISABLED CACHING
+		// localStorage.setItem(
+		// 	CACHE_KEY,
+		// 	JSON.stringify({
+		// 		data: transformedData,
+		// 		timestamp: Date.now(),
+		// 	})
+		// );
 
 		return { data: transformedData };
 	} catch (error) {
-		// If fetch fails and we have cached data, return it even if expired
-		if (cached) {
-			const { data } = JSON.parse(cached);
-			return { data };
-		}
+		// TEMPORARILY DISABLED CACHING FALLBACK
+		// if (cached) {
+		// 	const { data } = JSON.parse(cached);
+		// 	return { data };
+		// }
 		throw error;
 	}
 }
@@ -334,6 +332,9 @@ export async function getMegamenuData() {
  * @returns {Object} Transformed data with proper structure
  */
 function transformMegamenuData(apiData) {
+	// DEBUG: Log the raw API data to see what we're working with
+	// console.log('Raw megamenu API data:', apiData);
+
 	// Import cities data from static JSON for now
 	// You can replace this with API call later
 	const citiesData = {
@@ -389,19 +390,58 @@ function transformMegamenuData(apiData) {
 	};
 
 	// Transform categories data to match expected structure
+	// Process each category and ensure proper URL generation for businesses
+	const transformedCategories = {};
+
+	Object.entries(apiData).forEach(([categoryKey, categoryData]) => {
+		// console.log(`Processing category: ${categoryKey}`, categoryData);
+
+		// Transform the items array to ensure proper URLs
+		const transformedItems =
+			categoryData.items?.map((item) => {
+				// DEBUG: Log each item to see its structure
+				// console.log(`Processing item in ${categoryKey}:`, item);
+
+				// Ensure proper URL generation for business items
+
+				const transformedItem = {
+					...item,
+					url: `/parteneri${item.url}`,
+					// Ensure we have required fields
+					id: item.id || item.slug || Math.random().toString(36).substr(2, 9),
+					title: item.title || item.companyDetails?.name || 'Business',
+					image: item.image || item.companyDetails?.logo || '/assets/images/placeholder-business.jpg',
+				};
+
+				// console.log(`Transformed item:`, transformedItem);
+				return transformedItem;
+			}) || [];
+
+		transformedCategories[categoryKey] = {
+			...categoryData,
+			items: transformedItems,
+			// Ensure category has proper URL
+			url: categoryData.url || `/${categoryKey}`,
+			label: categoryData.label || categoryData.title || categoryKey,
+		};
+	});
+
 	const categoriesData = {
 		defaultActive: 'cafenele',
-		items: apiData,
+		items: transformedCategories,
 		allItemsLink: {
 			label: 'Vezi Toate',
 			url: '/toti-partenerii',
 		},
 	};
 
-	return {
+	const finalResult = {
 		cities: citiesData,
 		categories: categoriesData,
 	};
+
+	// console.log('Final transformed megamenu data:', finalResult);
+	return finalResult;
 }
 
 /**
