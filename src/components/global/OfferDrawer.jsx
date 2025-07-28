@@ -24,6 +24,7 @@ const OfferDrawer = (props) => {
 	const [visible, setVisible] = useState(false);
 	const [isClosing, setIsClosing] = useState(false);
 	const [showActivationNotice, setShowActivationNotice] = useState(false);
+	const [currentTime, setCurrentTime] = useState(Date.now());
 	const overlayRef = useRef(null);
 
 	useEffect(() => {
@@ -41,6 +42,17 @@ const OfferDrawer = (props) => {
 			return () => clearTimeout(timer);
 		}
 	}, [isOpen, visible]);
+
+	// Add timer for countdown updates
+	useEffect(() => {
+		if (visible && type === 'moment' && offer?.endTime) {
+			const timer = setInterval(() => {
+				setCurrentTime(Date.now());
+			}, 1000);
+
+			return () => clearInterval(timer);
+		}
+	}, [visible, type, offer?.endTime]);
 
 	useEffect(() => {
 		const handleKeyDown = (e) => {
@@ -84,7 +96,7 @@ const OfferDrawer = (props) => {
 		if (type === 'moment' && offer) {
 			const start = offer.startTime ? new Date(offer.startTime) : null;
 			const end = offer.endTime ? new Date(offer.endTime) : null;
-			const now = Date.now();
+			const now = currentTime; // Use currentTime state instead of Date.now()
 			let left = '';
 
 			if (end && !isNaN(end.getTime())) {
